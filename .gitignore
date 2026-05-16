@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Simulation
+sim/out/
+sim/work/
+*.log
+*.jou
+*.pb
+
+# Vivado generated
+xsa/
+.Xil/
+
+# Gemini / IDE
+.agents/
+.codex/
+.vscode/
+.idea/
