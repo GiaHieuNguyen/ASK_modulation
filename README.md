@@ -1,4 +1,4 @@
-# ASK Modulation System: Comprehensive Technical Report
+# ASK Modulation System: RTL and PYNQ Framework Codesign
 
 ## 1. Introduction
 

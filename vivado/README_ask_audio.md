@@ -3,6 +3,8 @@
 This guide packages the current RTL as a Vivado IP and builds a PYNQ-Z2 block
 design for the onboard ADAU1761 audio-codec oscilloscope demo.
 
+![Block Design Overview](bd.png)
+
 The first hardware demo uses:
 
 ```text
