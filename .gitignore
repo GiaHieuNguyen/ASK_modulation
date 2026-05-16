@@ -18,3 +18,6 @@ xsa/
 .codex/
 .vscode/
 .idea/
+
+# Local Docs
+current_process.md
