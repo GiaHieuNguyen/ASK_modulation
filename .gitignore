@@ -15,7 +15,7 @@ xsa/
 
 # Gemini / IDE
 .agents/
-.codex/
+.codex
 .vscode/
 .idea/
 
