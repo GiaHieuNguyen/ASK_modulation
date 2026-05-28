@@ -42,7 +42,7 @@ module ask_audio_top #(
 
     input  logic [31:0]             ifm_bram_rdata,
     output logic                    ifm_bram_en,
-    output logic [IFM_ADDR_W-1:0]   ifm_bram_addr,
+    output logic [31:0]             ifm_bram_addr,
 
     output logic                    codec_mclk,
     output logic                    codec_bclk,
@@ -58,6 +58,7 @@ module ask_audio_top #(
     logic signed [AMP_W-1:0] ask_out_int;
     logic [AMP_W-1:0] dac_data_unused;
     logic signed [AMP_W-1:0] audio_sample;
+    logic [IFM_ADDR_W-1:0] ifm_bram_word_addr;
 
     ask_modulator #(
         .PHASE_W(PHASE_W),
@@ -94,7 +95,7 @@ module ask_audio_top #(
         .s_axi_rready(s_axi_rready),
         .ifm_bram_rdata(ifm_bram_rdata),
         .ifm_bram_en(ifm_bram_en),
-        .ifm_bram_addr(ifm_bram_addr),
+        .ifm_bram_addr(ifm_bram_word_addr),
         .ask_out(ask_out_int),
         .carrier_dbg(carrier_dbg),
         .dac_data(dac_data_unused),
@@ -128,6 +129,7 @@ module ask_audio_top #(
     );
 
     assign ask_out_dbg = ask_out_int;
+    assign ifm_bram_addr = {{(30-IFM_ADDR_W){1'b0}}, ifm_bram_word_addr, 2'b00};
 
     logic unused_dac_data;
     assign unused_dac_data = ^dac_data_unused;
